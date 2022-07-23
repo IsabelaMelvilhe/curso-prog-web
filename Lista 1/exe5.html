@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+    <style> body{
+        background-color: lightseagreen;
+        text-align: center;
+        text-decoration-line: underline;
+    }
+    </style>
+</head>
+<body>
+    <h2>Exrcicio 5</h2>
+    <label for="primeiroNome">Primeiro Nome</label><br>
+    <input type="text" id="primeiroNome" placeholder="Digite seu primeiro Nome"><br>
+    <label for="sobrenome">Sobrenome</label><br>
+    <input type="text" id="sobrenome" placeholder="Digite seu sobrenome">
+    <button style="background-color:aquamarine ;" onclick="nomeCompleto()">Clique Aqui</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+        function nomeCompleto(){
+            var nome = document.getElementById("primeiroNome").value
+            var segundoNome= document.getElementById("sobrenome").value
+
+            document.getElementById("resultado").innerHTML = `Seu nome completo é: ${nome} ${segundoNome}`
+
+        }
+
+    </script>
+</body>
+</html>

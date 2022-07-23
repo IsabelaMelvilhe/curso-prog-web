@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+    <style>
+        body {
+            background-color:lightcoral;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Exercicio 4</h2>
+    <label for="primeiroValor">Primeiro Valor</label><br>
+    <input type="number" id="primeiroValor" placeholder="Digite um número"><br>
+    <label for="segundoValor">Segundo Valor</label><br>
+    <input type="number" id="segundoValor" placeholder="Digite um número"><br>
+    <button type="button" style="color: pink;" onclick="calcularMedia()">Clique Aqui</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularMedia(){
+            var primeiroNumero = document.getElementById("primeiroValor").value
+            var segundoNumero = document.getElementById("segundoValor").value
+            
+            var media = (Number(primeiroNumero) + Number(segundoNumero)) / 2
+
+            document.getElementById("resultado").innerHTML = `A média dos valores é: ${media}.`
+        }
+    </script>
+</body>
+</html>
