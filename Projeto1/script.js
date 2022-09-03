@@ -1,6 +1,7 @@
 
 var campos = document.querySelectorAll("td")
 function iniciar(){
+    //Iniciaalizar o jogo
     var info = document.getElementById("info")
     info.classList.remove("oculto")
 
@@ -13,19 +14,20 @@ function iniciar(){
     limpaJogo()
 
 }
-
+//Adiciona um event Listener em todos os campos
 campos.forEach(campo => {
     campo.addEventListener("click", evento => {
         let elemento = evento.target
-
+// valida se o elemento possui a classe blocked 
         if (elemento.classList.contains("blocked"))return
         console.log(elemento)
-
+//Preencher a jogada 
         let jogador = document.querySelector(".jogador strong")
         elemento.textContent = jogador.textContent
         elemento.style.color = jogador.style.color
         elemento.classList.add("blocked")
 
+        //valida se houve um vencedor no jogo 
         let ganhador = validaJogada()
         if (ganhador) {
             document.querySelector(".vencedor").classList.remove("oculto")
@@ -34,7 +36,7 @@ campos.forEach(campo => {
            campos.forEach(campo => campo.classList.add("blocked"))
             return
         }
-
+//Mudar o jogador da vez
         if (jogador.textContent === "X"){
             jogador.textContent = "O"
             jogador.style.color = "red"
@@ -62,6 +64,7 @@ function validaJogada(){
     ]
     var ganhador = null
     
+    //Valida se algumas das combinações possiveis  deu verdadeiro
     combinacoes.forEach(combinacao =>{
         let valor1 = campos[combinacao[0]].textContent
         let valor2 = campos[combinacao[1]].textContent
@@ -76,12 +79,14 @@ function validaJogada(){
             if (valor1 === "X") background ="blue"
             else background = "red"
 
+            //Pinta as casas ganhadoras da cor do jogador vencedor 
             campos[combinacao[0]].style.cssText = `background-color: ${background}; color: white;`
             campos[combinacao[1]].style.cssText = `background-color: ${background}; color: white;`
             campos[combinacao[2]].style.cssText = `background-color: ${background}; color: white;`
         }
     })
 
+    //Valida se o jogo deu velha
     var espacosEmBranco = 0 
     campos.forEach(campo => {
         if(campo.textContent === "") espacosEmBranco ++
@@ -98,6 +103,7 @@ function validaJogada(){
     return ganhador
 }
 
+//Função para reiniciar o jogo 
 function limpaJogo(){
     console.log(campos)
     campos.forEach(campo => {
