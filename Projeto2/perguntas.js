@@ -40,7 +40,7 @@ const perguntas = [
         resposta: "b"
     },
     {
-        pergunta: "Como realizer uma operação condicional no Javascript?",
+        pergunta: "Como realizar uma operação condicional no Javascript?",
         alternativas: {
             a: "if (texto === 'texto')",
             b: "if x > 5",
